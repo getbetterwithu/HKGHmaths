@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>수학교과 과목상세안내</title>
+  <style>
+    html { scroll-padding-top: 100px; }
+    body {
+      margin: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+      display: flex;
+      height: 100vh;
+    }
+    nav {
+      width: 250px;
+      background-color: #f3f4f6;
+      border-right: 1px solid #d1d5db;
+      padding: 20px;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      overflow-y: auto;
+    }
+    nav h3 {
+      font-size: 18px;
+      margin: 16px 0 8px;
+      color: #1f2937;
+    }
+    nav button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      border: none;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 8px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .group-general button { background-color: #e9d5ff; }
+    .group-career button { background-color: #bbf7d0; }
+    .group-converge button { background-color: #fde68a; }
+    nav button:hover { filter: brightness(0.9); }
+
+    main {
+      flex-grow: 1;
+      margin-left: 250px;
+      padding: 40px;
+      overflow-y: auto;
+    }
+    section {
+      display: none;
+      margin-bottom: 60px;
+      white-space: pre-wrap;
+      line-height: 1.6;
+    }
+    section.active {
+      display: block;
+    }
+    section h2 {
+      font-size: 28px;
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      background-color: #bae6fd;
+    }
+    strong {
+      font-weight: bold;
+      color: #111827;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h3>일반 선택 과목</h3>
+    <div class="group-general">
+      <button onclick="showSection('algebra', '#e9d5ff')">대수</button>
+      <button onclick="showSection('calc1', '#e9d5ff')">미적분Ⅰ</button>
+      <button onclick="showSection('stats', '#e9d5ff')">확률과 통계</button>
+    </div>
+    <h3>진로 선택 과목</h3>
+    <div class="group-career">
+      <button onclick="showSection('calc2', '#bbf7d0')">미적분Ⅱ</button>
+      <button onclick="showSection('geometry', '#bbf7d0')">기하</button>
+      <button onclick="showSection('econmath', '#bbf7d0')">경제 수학</button>
+      <button onclick="showSection('aimath', '#bbf7d0')">인공지능 수학</button>
+      <button onclick="showSection('jobmath', '#bbf7d0')">직무 수학</button>
+    </div>
+    <h3>융합 선택 과목</h3>
+    <div class="group-converge">
+      <button onclick="showSection('mathculture', '#fde68a')">수학과 문화</button>
+      <button onclick="showSection('practicalstats', '#fde68a')">실용 통계</button>
+      <button onclick="showSection('mathexplore', '#fde68a')">수학과제 탐구</button>
+    </div>
+  </nav>
+  <main>
+    <!-- 대수, 미적분Ⅰ, 확률과 통계, 미적분Ⅱ, 기하, 경제 수학, 인공지능 수학, 직무 수학, 수학과 문화, 실용 통계, 수학과제 탐구 순으로 섹션 작성 예정 -->
+  </main>
+  <script>
+    function showSection(id, color) {
+      document.querySelectorAll('main section').forEach(sec => {
+        sec.classList.remove('active');
+        sec.querySelector('h2').style.backgroundColor = '#bae6fd';
+      });
+      const target = document.getElementById(id);
+      if (target) {
+        target.classList.add('active');
+        target.querySelector('h2').style.backgroundColor = color;
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+</html>

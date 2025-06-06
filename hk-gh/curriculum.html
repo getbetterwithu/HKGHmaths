@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>수학 교육과정 뷰어</title>
+  <style>
+    :root {
+      --accent-orange: #f97316;
+      --bg-light: #f9fafb;
+      --border-color: #e5e7eb;
+      --text-dark: #1f2937;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'GmarketSansMedium', 'Noto Sans KR', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+    }
+    header {
+      position: sticky;
+      top: 0;
+      background: white;
+      padding: 16px;
+      display: flex;
+      gap: 12px;
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+    }
+    .nav-button:nth-child(1) { background-color: #fbcfe8; }
+    .nav-button:nth-child(2) { background-color: #bae6fd; }
+    .nav-button:nth-child(3) { background-color: #fde68a; }
+    .nav-button:nth-child(4) { background-color: #bbf7d0; }
+    .nav-button {
+      background: #f3f4f6;
+      border: 1px solid #d1d5db;
+      padding: 14px 24px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 18px;
+      font-family: 'GmarketSansMedium', 'Noto Sans KR', sans-serif;
+      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+      box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .nav-button:active {
+      transform: scale(0.93);
+      animation: clickPulse 0.15s ease;
+    }
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+    .nav-button:hover, .nav-button.active {
+      background: #000000;
+      color: #ffffff;
+    }
+    .view-section {
+      display: none;
+      height: calc(100vh - 64px);
+    }
+    .view-section.active {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .content {
+      flex: 1;
+      padding: 40px;
+      background: #ffffff;
+      overflow-y: auto;
+      text-align: center;
+    }
+    .content h2 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+    .content p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    img.curriculum-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    @keyframes clickPulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(0.93); }
+      100% { transform: scale(1); }
+    }
+    @media (max-width: 1200px) {
+      header {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .nav-button {
+        flex: 1 1 45%;
+        margin: 6px;
+        text-align: center;
+      }
+    }
+  </style>
+  <link href="https://cdn.jsdelivr.net/gh/webfontworld/gmarket/GmarketSans.css" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <button class="nav-button" onclick="switchView(0)">2022개정 수학과 교육과정 과목</button>
+    <button class="nav-button" onclick="switchView(1)">수학교과 과목상세안내</button>
+    <button class="nav-button" onclick="switchView(2)">우리학교의 개설과목 목록</button>
+    <button class="nav-button" onclick="switchView(3)">학과별 필수/추천과목 안내</button>
+  </header>
+  <main>
+    <div class="view-section" id="view-0">
+      <div class="content">
+        <h2>2022개정 수학과 교육과정 과목</h2>
+        <img src="curriculum-2022.png" alt="2022 개정 교육과정 과목 분류표" class="curriculum-image">
+      </div>
+    </div>
+    <div class="view-section" id="view-1">
+      <div class="content"><h2>내용을 준비 중입니다.</h2></div>
+    </div>
+    <div class="view-section" id="view-2">
+      <div class="content"><h2>내용을 준비 중입니다.</h2></div>
+    </div>
+    <div class="view-section" id="view-3">
+      <div class="content"><h2>내용을 준비 중입니다.</h2></div>
+    </div>
+  </main>
+  <script>
+    function switchView(index) {
+      const views = document.querySelectorAll('.view-section');
+      const buttons = document.querySelectorAll('.nav-button');
+      views.forEach((v, i) => v.classList.toggle('active', i === index));
+      buttons.forEach((b, i) => b.classList.toggle('active', i === index));
+    }
+  </script>
+</body>
+</html>
