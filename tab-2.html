@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>우리학교의 개설과목 목록</title>
+  <style>
+    html {
+      scroll-padding-top: 100px;
+    }
+    body {
+      margin: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #ffffff;
+      color: #1f2937;
+      padding: 20px;
+    }
+    section h2 {
+      font-size: 24px;
+      background-color: #fef9c3;
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    img.curriculum-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: block;
+      margin: 20px auto;
+    }
+      .lightbox-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      display: none;
+    }
+    .lightbox-overlay img {
+      max-width: 90vw;
+      max-height: 90vh;
+      cursor: zoom-out;
+      transform: scale(1.5); /* ← 1.5배 확대 */
+      transition: transform 0.3s ease;
+    }
+    @media (max-width: 768px) {
+  body {
+    height: auto;
+  }
+
+
+  main {
+    padding: 16px;
+  }
+}
+</style>
+</head>
+<body>
+  <div id="lightbox" class="lightbox-overlay" onclick="this.style.display='none'">
+    <img id="lightbox-img" src="" alt="확대 이미지">
+  </div>
+  <main>
+    <section>
+            <img src="8f969438-cefb-442b-a897-05dbbde463e2.png" alt="우리학교 개설 과목 목록" class="curriculum-image" onclick="showLightbox(this.src)" style="cursor: zoom-in;">
+    </section>
+  </main>
+  <script>
+    function showLightbox(src) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = src;
+      lightbox.style.display = 'flex';
+    }
+  </script>
+</body>
+</html>
