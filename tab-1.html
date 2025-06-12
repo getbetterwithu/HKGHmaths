@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>수학교과 과목상세안내</title>
+  <style>
+    html { scroll-padding-top: 100px; }
+    body {
+      margin: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+      display: flex;
+      height: 100vh;
+    }
+    nav {
+      width: 250px;
+      background-color: #f3f4f6;
+      border-right: 1px solid #d1d5db;
+      padding: 20px;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      overflow-y: auto;
+    }
+    nav h3 {
+      font-size: 18px;
+      margin: 16px 0 8px;
+      color: #1f2937;
+    }
+    .group-general button { background-color: #e9d5ff; }
+    .group-career button { background-color: #bbf7d0; }
+    .group-converge button { background-color: #fde68a; }
+    nav button {
+      display: block;
+      width: 100%;
+      text-align: left;
+      border: none;
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 8px;
+      font-size: 15px;
+      cursor: pointer;
+      transition: background 0.2s;
+      min-width: 100px;
+    }
+    nav button:hover { filter: brightness(0.9); }
+    main {
+      flex-grow: 1;
+      margin-left: 270px;
+      padding: 40px;
+      overflow-y: auto;
+    }
+    section {
+      display: none;
+      margin-bottom: 60px;
+    }
+    section.active { display: block; }
+    section h2 {
+      font-size: 28px;
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      background-color: #bae6fd;
+    }
+    section img.preview {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+        height: auto;
+      }
+      nav {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        border-right: none;
+        border-bottom: 1px solid #d1d5db;
+        position: static;
+        height: auto;
+      }
+      nav h3 {
+        flex: 1 1 auto;
+        font-size: 14px;
+        text-align: center;
+        padding: 10px;
+      }
+      main {
+        padding: 16px;
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <h3>일반 선택 과목</h3>
+    <div class="group-general">
+      <button onclick="showSection('algebra', this.dataset.color, 2)" data-color="#e9d5ff">대수</button>
+      <button onclick="showSection('calc1', this.dataset.color, 3)" data-color="#e9d5ff">미적분Ⅰ</button>
+      <button onclick="showSection('stats', this.dataset.color, 4)" data-color="#e9d5ff">확률과 통계</button>
+    </div>
+    <h3>진로 선택 과목</h3>
+    <div class="group-career">
+      <button onclick="showSection('calc2', this.dataset.color, 5)" data-color="#bbf7d0">기하</button>
+      <button onclick="showSection('geometry', this.dataset.color, 6)" data-color="#bbf7d0">미적분Ⅱ</button>
+      <button onclick="showSection('economy', this.dataset.color, 7)" data-color="#bbf7d0">경제 수학</button>
+      <button onclick="showSection('ai', this.dataset.color, 8)" data-color="#bbf7d0">인공지능 수학</button>
+      <button onclick="showSection('business', this.dataset.color, 9)" data-color="#bbf7d0">직무 수학</button>
+    </div>
+    <h3>융합 선택 과목</h3>
+    <div class="group-converge">
+      <button onclick="showSection('culture', this.dataset.color, 10)" data-color="#fde68a">수학과 문화</button>
+      <button onclick="showSection('practical', this.dataset.color, 11)" data-color="#fde68a">실용 통계</button>
+      <button onclick="showSection('project', this.dataset.color, 12)" data-color="#fde68a">수학과제 탐구</button>
+    </div>
+  </nav>
+  <main>
+    <section id="algebra" class="active">
+      <h2 style="background-color:#e9d5ff">∑ 대수</h2>
+      <img class="preview" src="images/slide2.jpg" alt="대수 이미지" />
+    </section>
+    <section id="calc1">
+      <h2 style="background-color:#e9d5ff">♾️ 미적분Ⅰ</h2>
+      <img class="preview" src="images/slide3.jpg" alt="미적분Ⅰ 이미지" />
+    </section>
+    <section id="stats">
+      <h2 style="background-color:#e9d5ff">📊 확률과 통계</h2>
+      <img class="preview" src="images/slide4.jpg" alt="확률과 통계 이미지" />
+    </section>
+    <section id="calc2">
+      <h2 style="background-color:#bbf7d0">🧮 미적분Ⅱ</h2>
+      <img class="preview" src="images/slide5.jpg" alt="미적분Ⅱ 이미지" />
+    </section>
+    <section id="geometry">
+      <h2 style="background-color:#bbf7d0">📐 기하</h2>
+      <img class="preview" src="images/slide6.jpg" alt="기하 이미지" />
+    </section>
+    <section id="economy">
+      <h2 style="background-color:#bbf7d0">💰 경제 수학</h2>
+      <img class="preview" src="images/slide7.jpg" alt="경제 수학 이미지" />
+    </section>
+    <section id="ai">
+      <h2 style="background-color:#bbf7d0">🤖 인공지능 수학</h2>
+      <img class="preview" src="images/slide8.jpg" alt="인공지능 수학 이미지" />
+    </section>
+    <section id="business">
+      <h2 style="background-color:#bbf7d0">📎 직무 수학</h2>
+      <img class="preview" src="images/slide9.jpg" alt="직무 수학 이미지" />
+    </section>
+    <section id="culture">
+      <h2 style="background-color:#fde68a">🎭 수학과 문화</h2>
+      <img class="preview" src="images/slide10.jpg" alt="수학과 문화 이미지" />
+    </section>
+    <section id="practical">
+      <h2 style="background-color:#fde68a">📈 실용 통계</h2>
+      <img class="preview" src="images/slide11.jpg" alt="실용 통계 이미지" />
+    </section>
+    <section id="project">
+      <h2 style="background-color:#fde68a">🧪 수학과제 탐구</h2>
+      <img class="preview" src="images/slide12.jpg" alt="수학과제 탐구 이미지" />
+    </section>
+  </main>
+  <script>
+    function showSection(id, color, slideNum) {
+      document.querySelectorAll('main section').forEach(sec => {
+        sec.classList.remove('active');
+        const h2 = sec.querySelector('h2');
+        if (h2) h2.style.backgroundColor = '#bae6fd';
+      });
+      const target = document.getElementById(id);
+      if (target) {
+        target.classList.add('active');
+        const h2 = target.querySelector('h2');
+        if (h2 && color) h2.style.backgroundColor = color;
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>수학교과 과목상세안내</title>
+  <style>
+    html {
+      scroll-padding-top: 100px;
+    }
+    body {
+      margin: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+      background-color: #ffffff;
+      color: #1f2937;
+      display: flex;
+      height: 100vh;
+    }
+    nav {
+      background-color: #f3f4f6;
+      border-right: 1px solid #d1d5db;
+      padding: 20px;
+      width: 250px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    nav h3 {
+      font-weight: bold;
+      color: #1f2937;
+      padding: 14px 16px;
+      font-size: 16px;
+      margin: 0;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    nav h3::before {
+      content: '📌';
+      display: inline-block;
+      font-size: 18px;
+    }
+    nav h3:nth-of-type(1) {
+      background-color: #fef9c3;
+    }
+    nav h3:nth-of-type(2) {
+      background-color: #e0f2fe;
+    }
+    nav h3:nth-of-type(3) {
+      background-color: #d1fae5;
+    }
+
+    nav h3:hover,
+    nav h3:focus {
+      transform: scale(1.03);
+      background-color: #e5e7eb;
+      color: #111827;
+      outline: none;
+    }
+    main {
+      flex: 1;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+      padding: 20px;
+    }
+    section {
+      margin-bottom: 60px;
+      border-bottom: 2px solid #e5e7eb;
+      padding-bottom: 40px;
+    }
+    section h2 {
+      background-color: #fef9c3;
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    #diagram h2 {
+      background-color: #e0f2fe;
+    }
+    #mindmap h2 {
+      background-color: #d1fae5;
+    }
+    section p {
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+    img.curriculum-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: block;
+      margin: 20px auto;
+      cursor: default;
+    }
+    .lightbox-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(255, 255, 255, 0.95);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+    .lightbox-overlay img {
+      max-width: 90vw;
+      max-height: 90vh;
+      cursor: zoom-out;
+      transform: scale(2);
+      transition: transform 0.3s ease;
+    }
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+    height: auto;
+  }
+
+  nav {
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border-right: none;
+    border-bottom: 1px solid #d1d5db;
+  }
+
+  nav h3 {
+    flex: 1 1 auto;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+  }
+
+  main {
+    padding: 16px;
+  }
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <h3 tabindex="0" role="button" onclick="document.getElementById('overview').scrollIntoView()">과목 개요</h3>
+    <h3 tabindex="0" role="button" onclick="document.getElementById('diagram').scrollIntoView()">과목 분류도</h3>
+    <h3 tabindex="0" role="button" onclick="document.getElementById('mindmap').scrollIntoView()">과목 흐름도</h3>
+  </nav>
+  <main>
+    <section id="overview">
+      <h2>수학교과 과목 개요</h2>
+      <p>수학교과는 학생의 흥미와 수준, 진로에 따라 다양한 선택이 가능하도록 구성되어 있습니다.</p>
+      <p>공통 과목은 수학의 기초 개념을 다루며, 선택 과목은 학문적 심화와 진로 연계를 목적으로 합니다.</p>
+      <p style="font-style: italic; color: #374151; font-weight: 500;">*기본수학은 기초학력 보장을 위한 과목이며, 우리학교에서는 운영하지 않습니다.</p>
+    </section>
+    <section id="diagram">
+      <h2>과목 분류도</h2>
+      <img src="math-subject-classification.png" alt="수학교과 과목 분류도" class="curriculum-image">
+    </section>
+    <section id="mindmap">
+      <h2>과목 흐름도</h2>
+      <img src="Frame1.png" alt="수학교과 과목 흐름도" class="curriculum-image">
+    </section>
+  </main>
+  
+  
+</body>
+</html>
